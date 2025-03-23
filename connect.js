@@ -14,11 +14,9 @@ connection.connect()
     .catch(err => console.error("Connection error:", err));
 
 module.exports = { connection };*/
-//postgresql://postgres:$HarshulSoni04@db.hbpqqnkfuzujsxhhdagd.supabase.co:5432/postgres
 const { Pool } = require('pg');
-
 const connection = new Pool({
-    connectionString: "://postgres.hbpqqnkfuzujsxhhdagd:$HarshulSoni04@aws-0-ap-south-1.pooler.supabase.com:6543/postgres",
+    connectionString: "postgresql://postgres.hbpqqnkfuzujsxhhdagd:$HarshulSoni04@aws-0-ap-south-1.pooler.supabase.com:6543/postgres",
     ssl: {
         rejectUnauthorized: false // Required for Supabase connections
     }
