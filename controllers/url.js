@@ -13,7 +13,7 @@ async function handleGenerate(req, res) {
         if (urlCheckResult.rows.length > 0) {
             return res.json({
                 id: urlCheckResult.rows[0].shortid,
-                shortUrl: `givaassignment-production.up.railway.app/${urlCheckResult.rows[0].shortid}`, //Changed
+                shortUrl: `https://givaassignment-production.up.railway.app/${urlCheckResult.rows[0].shortid}`, //Changed
                 message: "Short ID already exists for this URL"
             });
         }
@@ -28,7 +28,7 @@ async function handleGenerate(req, res) {
             if (alias) {
                 return res.status(400).json({ error: "Alias already in use. Choose a different one." });
             } else {
-                return res.json({ id: shortID, shortUrl: `givaassignment-production.up.railway.app/${shortID}` }); //changed
+                return res.json({ id: shortID, shortUrl: `https://givaassignment-production.up.railway.app/${shortID}` }); //changed
             }
         }
 
@@ -43,7 +43,7 @@ async function insertURL(shortId, url, res) {
     try {
         const insertQuery = "INSERT INTO url_shortner.urls (shortId, redirectURL, visitCount) VALUES ($1, $2, 0)";
         await connection.query(insertQuery, [shortId, url]);
-        res.json({ id: shortId, shortUrl: `givaassignment-production.up.railway.app/${shortId}` }); //changed
+        res.json({ id: shortId, shortUrl: `https://givaassignment-production.up.railway.app/${shortId}` }); //changed
     } catch (error) {
         console.error("Error inserting URL:", error);
         res.status(500).json({ error: "Database error 3" });
