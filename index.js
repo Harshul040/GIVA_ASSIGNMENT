@@ -13,7 +13,7 @@ app.get('/:shortId', async (req, res) => {
 
     try {
         
-        const result = await connection.query("SELECT * FROM url_shortner.urls WHERE shortId = $1", [shortId]);
+        const result = await connection.query("SELECT * FROM url_shortner.urls WHERE shortid = $1", [shortId]);//change
         if (result.rows.length === 0) {
             return res.status(404).json({ error: "Short URL not found" });
         }
