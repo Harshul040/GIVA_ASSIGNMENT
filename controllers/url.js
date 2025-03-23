@@ -46,7 +46,7 @@ async function insertURL(shortId, url, res) {
         res.json({ id: shortId, shortUrl: `givaassignment-production.up.railway.app/${shortId}` }); //changed
     } catch (error) {
         console.error("Error inserting URL:", error);
-        res.status(500).json({ error: "Database error" });
+        res.status(500).json({ error: "Database error 3" });
     }
 }
 
@@ -63,7 +63,7 @@ async function handleStats(req, res) {
         return res.json({ visitCount: results.rows[0].visitcount });
     } catch (err) {
         console.error("Error fetching visit count:", err);
-        return res.status(500).json({ error: "Database error" });
+        return res.status(500).json({ error: "Database error 2" });
     }
 }
 

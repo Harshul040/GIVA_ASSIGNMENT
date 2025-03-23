@@ -24,7 +24,7 @@ app.get('/:shortId', async (req, res) => {
         res.redirect(entry.redirecturl);
     } catch (err) {
         console.error("Error fetching URL:", err);
-        res.status(500).json({ error: "Database error" });
+        res.status(500).json({ error: "Database error 1" });
     }
 });
 
