@@ -19,7 +19,7 @@ app.get('/:shortId', async (req, res) => {
         }
         const entry = result.rows[0];
 
-        await connection.query("UPDATE url_shortner.urls SET visitCount = visitCount + 1 WHERE shortId = $1", [shortId]);
+        await connection.query("UPDATE url_shortner.urls SET visitcount = visitcount + 1 WHERE shortid = $1", [shortId]);
 
         res.redirect(entry.redirecturl);
     } catch (err) {
